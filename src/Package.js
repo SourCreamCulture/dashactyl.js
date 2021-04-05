@@ -1,3 +1,6 @@
+const fetch = require('node-fetch').default;
+
+module.exports={
 async ram(url,token,userid,message){
   if(!url) throw new TypeError("No url was specified")
   if(!userid) throw new TypeError("No user id was specified")
@@ -74,3 +77,4 @@ async servers(url,token,userid,message){
       return message.reply(json.package.servers);
   });
 },
+}

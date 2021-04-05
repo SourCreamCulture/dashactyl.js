@@ -1,3 +1,6 @@
+const fetch = require('node-fetch').default;
+
+module.exports={
 async coins(url,token,userid,message){
   if(!url) throw new TypeError("No url was specified")
   if(!userid) throw new TypeError("No user id was specified")
@@ -135,3 +138,4 @@ async admin(url,token,userid,message){
       return message.reply(json.userinfo.attributes.root_admin); //returns true or false
   });
 },
+}

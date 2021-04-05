@@ -1,21 +1,27 @@
 const fetch = require('node-fetch').default;
 
 module.exports={
-  coins: function(url,userid,token){
+   coins: function(url,token,userid,message){
     if(!url) throw new TypeError("No url was specified")
     if(!userid) throw new TypeError("No user id was specified")
     if(!token) throw new TypeError("No token was provided")
+    if(!message) throw new TypeError("No message (message.channel) was provided")
 
-    fetch(`https://${url}/api/userinfo/${userid}`, {
+    fetch(`${url}/api/userinfo/?id=${userid}`, {
         method: 'GET',
         headers: { 
           'Content-Type': 'application/json',
-          Authorization: token, 
+          Authorization: `Bearer ${token}`, 
         },
         body:    null,
     })
-    .then(res => (res.coins));
-    //.then(json => console.log(json));
+    .then(res => res.json())
+    .then(async (json) => {
+            return message.reply(json.coins);
+        });
+    //.then(json => (json.coins))
     //.then(res => console.log(res));
+    //.then(res => res.text())
+    //.then(text => console.log(text))
   }
 }

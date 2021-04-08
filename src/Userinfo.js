@@ -1,13 +1,29 @@
 const fetch = require('node-fetch').default;
 
 module.exports={
+
 async coins(url,token,userid){
   if(!url) throw new TypeError("No url was specified")
   if(!userid) throw new TypeError("No user id was specified")
   if(!token) throw new TypeError("No token was provided")
   //if(!message) throw new TypeError("No message (message.channel) was provided")
 
-  const got = await fetch(`${url}/api/userinfo/?id=${userid}`, {
+/*async function res() {
+  try {
+    const response = await axios.get(`${url}/api/userinfo`, {
+      params: {
+      ID: userid,
+      Authorization: `Bearer ${token}`,
+    }
+    });
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+  return(response)
+}*/
+
+  return fetch(`${url}/api/userinfo/?id=${userid}`, {
       method: 'GET',
       headers: { 
         'Content-Type': 'application/json',
@@ -17,11 +33,11 @@ async coins(url,token,userid){
   })
   .then(res => res.json())
   .then(json => (json.coins))
-  .then(return got)
     //.then(json => (json.coins))
     //.then(res => console.log(res));
     //.then(res => res.text())
     //.then(text => console.log(text))
+    //return(got.data)
 },
 async userinfo(url,token,userid,message){
   if(!url) throw new TypeError("No url was specified")

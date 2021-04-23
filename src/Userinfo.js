@@ -22,8 +22,8 @@ async coins(url,token,userid){
   }
   return(response)
 }*/
-
-  return fetch(`${url}/api/userinfo/?id=${userid}`, {
+let coinss;
+  fetch(`${url}/api/userinfo/?id=${userid}`, {
       method: 'GET',
       headers: { 
         'Content-Type': 'application/json',
@@ -31,8 +31,17 @@ async coins(url,token,userid){
       },
       body:    null,
   })
-  .then(res => res.json())
-  .then(json => (json.coins))
+  /*.then((res) => { 
+    return res.json()
+    //return coinss 
+  })
+  .then((json) => {
+    return coinss = json.coins;
+  })
+  console.log(coinss)*/
+  //.then(res => res.json())
+  //.then(json => 
+  //{return json.coins})
     //.then(json => (json.coins))
     //.then(res => console.log(res));
     //.then(res => res.text())

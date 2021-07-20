@@ -1,14 +1,31 @@
 {
-  "name": "dashactyl.js",
-  "version": "1.1.1",
-  "description": "an api wrapper for the dashactyl api",
-  "main": "index.js",
+  "name": "dashactyl.j",
+  "version": "1.2.0",
+  "description": "API wrapper for dashactyl",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
-  "author": "sourcream",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SourCreamCulture/dashactyl.js"
+  },
+  "keywords": [
+    "dashactyl",
+    "wrapper",
+    "node"
+  ],
+  "author": "SourCream",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SourCreamCulture/dashactyl.js/issues"
+  },
+  "homepage": "https://github.com/SourCreamCulture/dashactyl.js",
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "axios": "^0.21.1",
+    "dashactyl.js": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0"
   }
 }

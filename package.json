@@ -1,5 +1,5 @@
 {
-  "name": "dashactyl.j",
+  "name": "dashactyl.js",
   "version": "1.2.0",
   "description": "API wrapper for dashactyl",
   "main": "src/index.js",
@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/SourCreamCulture/dashactyl.js",
   "dependencies": {
-    "axios": "^0.21.1",
-    "dashactyl.js": "^1.2.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "eslint": "^7.30.0"

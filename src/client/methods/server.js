@@ -1,15 +1,20 @@
 const ClientRequest = require('../../ClientRequest');
 const axios = require('axios');
+const json = require('json')
 
 class Servers extends ClientRequest {
 
-    userinfo(userid) {
+    setplan(userid, plan) {
+        //var body = {"id": userid, "package": plan};
+        var body = ({"id": userid, "package": plan})
+        
         return new Promise((resolve, reject) => {
             axios({
-                method: 'GET',
-                url: `${this.host}/api/userinfo/?id=${userid}`,
+                method: 'POST',
+                url: `${this.host}/api/setplan`,
                 maxRedirects: 5,
-                headers: this.headers()
+                headers: this.headers(),
+                body: body,
             }).then(response => {
                 resolve(response.data);
             }).catch(error => {
@@ -18,28 +23,16 @@ class Servers extends ClientRequest {
         });
     }
 
-    getServerDetails(serverid) {
+    addcoins(userid, coins) {
+        var body = ({"id": userid, "coins": coins})
+        
         return new Promise((resolve, reject) => {
             axios({
-                method: 'GET',
-                url: `${this.host}/api/servers/${serverid}`,
+                method: 'POST',
+                url: `${this.host}/api/addcoins`,
                 maxRedirects: 5,
-                headers: this.headers()
-            }).then(response => {
-                resolve(response.data);
-            }).catch(error => {
-                reject(this.HttpError(error));
-            });
-        });
-    }
-
-    suspendServer(serverid) {
-        return new Promise((resolve, reject) => {
-            axios({
-                method: 'PATCH',
-                url: `${this.host}/api/servers/${serverid}/suspend`,
-                maxRedirects: 5,
-                headers: this.headers()
+                headers: this.headers(),
+                body: body,
             }).then(response => {
                 resolve(response.data);
             }).catch(error => {

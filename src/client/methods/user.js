@@ -3,6 +3,21 @@ const axios = require('axios');
 
 class Users extends ClientRequest {
 
+    userinfo(userid) {
+        return new Promise((resolve, reject) => {
+            axios({
+                method: 'GET',
+                url: `${this.host}/api/userinfo/?id=${userid}`,
+                maxRedirects: 5,
+                headers: this.headers()
+            }).then(response => {
+                resolve(response.data);
+            }).catch(error => {
+                reject(this.HttpError(error));
+            });
+        });
+    }
+
     getUsers() {
         return new Promise((resolve, reject) => {
             axios({
